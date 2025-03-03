@@ -1,0 +1,29 @@
+language: python
+python:
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt  # Install dependencies
+  - pip install flake8 black coverage coveralls  # Install code quality tools
+
+before_script:
+  - black --check .  # Run Black formatter check
+  - flake8 .  # Run Flake8 linter check
+
+script:
+  - python manage.py migrate  # Apply migrations for SQLite
+  - coverage run manage.py test  # Run Django test suite
+
+after_success:
+  - coveralls  # Upload test coverage report to Coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: "us-west-2"  
+  app: "django-tut"  
+  env: "django-environment"  
+  on:
+    branch: main  
+
