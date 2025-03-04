@@ -22,6 +22,8 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   region: "us-west-2"  
   app: "django-tut"  
-  env: "django-environment" 
+  env: "django-environment"
+  bucket_name: "elasticbeanstalk-us-west-2-730335518224"
+  bucket_path: "django-tutorial" 
   on:
     branch: main  
