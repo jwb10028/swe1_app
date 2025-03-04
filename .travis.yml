@@ -15,7 +15,7 @@ script:
   - flake8 .
   - coverage run --source=swe1_app,polls manage.py test
 
-after_success:
+after_script:
   - coveralls  
 
 deploy:
