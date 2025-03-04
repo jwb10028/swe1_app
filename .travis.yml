@@ -4,6 +4,7 @@ python:
 
 install:
   - pip install -r requirements.txt  # Install dependencies
+  - python -m pip install --upgrade pip setuptools wheel
   - pip install flake8 black coverage coveralls  # Install code quality tools
 
 before_script:
@@ -21,7 +22,7 @@ deploy:
   provider: elasticbeanstalk
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  region: "us-east-1"  
+  region: "us-west-2"  
   app: "django-tut"  
   env: "django-environment" 
   on:
