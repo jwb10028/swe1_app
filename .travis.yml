@@ -24,6 +24,5 @@ deploy:
   app: "django-tut"  
   env: "django-environment"
   bucket_name: "elasticbeanstalk-us-west-2-730335518224"
-  bucket_path: "django-tutorial" 
   on:
     branch: main  
