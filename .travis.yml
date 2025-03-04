@@ -2,11 +2,6 @@ language: python
 python:
   - "3.7"
 
-before_install:
-  - gem install nokogiri --platform=ruby
-  - bundle config set force_ruby_platform true
-  - bundle install
-
 install:
   - pip install -r requirements.txt  # Install dependencies
   - python -m pip install --upgrade pip setuptools wheel
