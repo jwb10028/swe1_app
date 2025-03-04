@@ -1,3 +1,4 @@
+dist: focal
 language: python
 python:
   - "3.7"
@@ -10,7 +11,7 @@ before_script:
   - python manage.py collectstatic --noinput
 
 script:
-  - coverage run --source=swe1_app manage.py test
+  - coverage run --source=swe1_app,polls manage.py test
 
 after_success:
   - coveralls  
@@ -24,4 +25,5 @@ deploy:
   env: "swe1-app-env"
   bucket_name: "elasticbeanstalk-us-west-2-730335518224"
   on:
-    branch: main  
+    branch: main
+  skip_cleanup: true  
