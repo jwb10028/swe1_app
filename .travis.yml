@@ -27,5 +27,6 @@ deploy:
   env: "swe1-app-env"
   bucket_name: "elasticbeanstalk-us-west-2-730335518224"
   on:
+    repo: jwb10028/swe1_app
     branch: main
   skip_cleanup: true  
